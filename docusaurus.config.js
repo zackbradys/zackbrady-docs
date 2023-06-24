@@ -65,7 +65,7 @@ const config = {
           documents: ["README.md"], // the file names to download
           modifyContent(filename, content) {
             if (filename.includes("README")) {
-                return { content: "---" + "\n" + "sidebar_label: Rancher Effortles" + "\n" + "---" + "\n\n" + content }
+                return { content: "---" + "\n" + "sidebar_label: Rancher Effortless" + "\n" + "---" + "\n\n" + content }
             }
             return undefined
           },
