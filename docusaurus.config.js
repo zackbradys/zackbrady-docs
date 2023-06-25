@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: "Zack Brady's Docs",
   tagline: "Documentation for the Randomness of Zack Brady",
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicons/favicon.ico',
 
   url: 'https://docs.zackbrady.com',
   baseUrl: '/',
@@ -67,7 +67,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/zack-brady-docs-social-card.png',
       colorMode: {
         defaultMode: 'light',
       },
@@ -75,7 +75,7 @@ const config = {
         title: "Zack Brady's Docs",
         logo: {
           alt: 'zack-bradys-docs-logo',
-          src: 'img/logo.svg',
+          src: 'img/logo.png',
         },
         items: [
           {
