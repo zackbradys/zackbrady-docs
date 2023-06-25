@@ -4,8 +4,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Zack Brady's Docs",
-  tagline: "Documentation for Zack Brady's Project's",
-  favicon: 'images/favicon.ico',
+  tagline: "Documentation for the Randomness of Zack Brady",
+  favicon: 'img/favicon.ico',
 
   url: 'https://docs.zackbrady.com',
   baseUrl: '/',
@@ -14,7 +14,7 @@ const config = {
   projectName: 'zackbrady-docs',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenMarkdownLinks: 'throw',
 
   i18n: {
     defaultLocale: 'en',
@@ -35,12 +35,6 @@ const config = {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           lastVersion: 'current',
-          versions: {
-            current: {
-              label: 'latest',
-              banner: 'none',
-            },
-          },
         },
         blog: {
           showReadingTime: true,
@@ -57,36 +51,23 @@ const config = {
 
   plugins: [
     [
-        "docusaurus-plugin-remote-content",
-        {
-          name: "rancher-effortless", // used by CLI, must be path safe
-          sourceBaseUrl: "https://raw.githubusercontent.com/zackbradys/rancher-effortless/main/", // the base url for the markdown (gets prepended to all of the documents when fetching)
-          outDir: "docs/rancher-effortless", // the base directory to output to.
-          documents: ["README.md"], // the file names to download
-          modifyContent(filename, content) {
-            if (filename.includes("README")) {
-                return { content: "---" + "\n" + "sidebar_label: Rancher Effortless" + "\n" + "---" + "\n\n" + content }
-            }
-            return undefined
-          },
-        },
-    ],
-    [
-        "docusaurus-plugin-remote-content",
-        {
-          name: "website", // used by CLI, must be path safe
-          sourceBaseUrl: "https://raw.githubusercontent.com/zackbradys/rancher-effortless/main/images/", // the base url for the markdown (gets prepended to all of the documents when fetching)
-          outDir: "static/images", // the base directory to output to.
-          documents: ["rgs-effortless-banner.png", "rancher-harvester-vm-overview.png", "rancher-rke2-cp-01-systemctl.png", "rancher-rke2-cp-01-kubectl.png", "rancher-rke2-cp-01-kubectl-all.png", "rancher-helm-repo-status.png", "rancher-cert-manager-status.png", "rancher-rancher-manager-bootstrap.png", "rancher-rancher-manager-status.png", "rancher-rancher-manager-terms.png", "rancher-rancher-manager-home.png", "rancher-helm-repo-status-longhorn.png", "rancher-longhorn-status.png", "rancher-longhorn-home.png", "rancher-helm-repo-status-neuvector.png", "rancher-neuvector-status.png", "rancher-neuvector-bootstrap.png", "rancher-neuvector-home.png"], // the file names to download
-          requestConfig: { responseType: "arraybuffer" } // the request config to use when fetching the markdown files
-        },
+      require.resolve("@cmfcmf/docusaurus-search-local"),
+      {
+        indexDocs: true,
+        indexDocSidebarParentCategories: 0,
+        indexBlog: true,
+        indexPages: true,
+      
+        language: "en",
+        maxSearchResults: 10,
+      }
     ],
   ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'images/docusaurus-social-card.jpg',
+      image: 'img/docusaurus-social-card.jpg',
       colorMode: {
         defaultMode: 'light',
       },
@@ -94,22 +75,19 @@ const config = {
         title: "Zack Brady's Docs",
         logo: {
           alt: 'zack-bradys-docs-logo',
-          src: 'images/logo.svg',
+          src: 'img/logo.svg',
         },
         items: [
-          {
-            type: 'docsVersionDropdown',
-          },
           {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Docs',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/zackbradys/zackbrady-docs',
-            label: 'GitHub',
+            label: 'GitHub Repo',
             position: 'right',
           },
         ],
@@ -121,8 +99,30 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Docs',
+                to: '/docs/introduction',
+              },
+            ],
+          },
+          {
+            title: 'Blog',
+            items: [
+              {
+                label: 'Blog',
+                to: '/blog',
+              },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'Docs',
+                to: '/docs/introduction',
+              },
+              {
+                label: 'Blog',
+                href: '/blog',
               },
             ],
           },
@@ -140,19 +140,6 @@ const config = {
               {
                 label: 'Twitter',
                 href: 'https://twitter.com/zackbradys',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Docs',
-                to: '/docs/intro',
-              },
-              {
-                label: 'Blog',
-                href: '/blog',
               },
             ],
           },

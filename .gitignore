@@ -5,6 +5,8 @@
 
 **/node_modules/
 **/build/
+**/versioned_docs/
+**/versioned_sidebars/
 
 **/.DS_Store
 **/.docusaurus
