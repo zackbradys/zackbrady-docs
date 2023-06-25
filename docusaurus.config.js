@@ -30,7 +30,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
 
           editUrl:
-            'https://github.com/zackbradys/zackbrady-docs/docs',
+            'https://github.com/zackbradys/zackbrady-docs/blob/main/',
         
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
@@ -40,7 +40,7 @@ const config = {
           showReadingTime: true,
 
           editUrl:
-            'https://github.com/zackbradys/zackbrady-docs/blog',
+            'https://github.com/zackbradys/zackbrady-docs/blob/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
